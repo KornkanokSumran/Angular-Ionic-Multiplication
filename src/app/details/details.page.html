@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>Number : {{num}}</ion-item>
+  <ion-item *ngFor = "let n of result; let i = index">
+    {{num}} * {{i+1}} = {{n}}
+  </ion-item>
+  <ion-button routerLink="/home" >Back</ion-button>
+</ion-content>

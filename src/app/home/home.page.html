@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Multiplication
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+  <ion-label position="floating">Input Number</ion-label>
+  <ion-input #numinput></ion-input>
+  </ion-item>
+  <div style="margin-top: 20px;">
+    <ion-button type="submit" color="primary" expand="block" routerLink="/details/{{numinput.value}}" >Submit</ion-button>
+  </div>  
+  <ion-item *ngFor = "let n of result; let i = index">
+      {{num.value}} x {{i+1}} = {{n}}
+    </ion-item>
+  
+</ion-content>
