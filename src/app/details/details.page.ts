@@ -23,6 +23,20 @@ export class DetailsPage implements OnInit {
     for (let i=1; i<=12; i++){
       this.result.push(numin * i);
     }
+    await this.storage.get(this.numinput).then((val)=>{
+          this.storage.set(this.numinput,val+1);
+          //console.log('count',val+1)
+          this.count = val+1
+          console.log(this.numinput,val+1)
+    });
+  }
+ 
+  deleteData(){
+    this.storage.get(this.numinput).then((val)=>{
+    this.storage.set(this.numinput,val-1);
+    console.log('count',val-1)
+    this.count = val-1
+    });
   }
  }
  

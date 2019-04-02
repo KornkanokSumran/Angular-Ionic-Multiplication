@@ -4,6 +4,7 @@ import { from } from 'rxjs';
 import { DetailsPage } from '../details/details.page';
 import { MenuController,NavController } from '@ionic/angular';
 import { catchError, tap, map } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +12,7 @@ import { catchError, tap, map } from 'rxjs/operators';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  result = []
-
   constructor(private router : Router,
-              public navCtrl: NavController){
+              private storage: Storage){
  }
-
-
-  onClickPush(){
-    this.router.navigate(['/detail'])
-  }
 }
