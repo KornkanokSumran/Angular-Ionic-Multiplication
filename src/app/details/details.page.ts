@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-details',
@@ -8,19 +9,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsPage implements OnInit {
   result = []
-  num = []
-  constructor(private route: ActivatedRoute) { }
+  numinput = this.route.snapshot.paramMap.get('input');
+  key:any='number';
+  count:number
+  
+  constructor(private route: ActivatedRoute,
+              private storage: Storage) { }
 
   ngOnInit() {
-    let num = this.route.snapshot.paramMap.get('input');  
-    console.log(num);
-    this.ongetnum(num);
+    this.ongetnum(this.numinput);
   }
-  ongetnum(num){
-    this.num = num;
+  async ongetnum(numin){
     for (let i=1; i<=12; i++){
-      this.result.push(num * i);
+      this.result.push(numin * i);
     }
   }
-
-}
+ }
+ 
