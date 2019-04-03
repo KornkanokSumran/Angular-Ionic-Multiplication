@@ -19,11 +19,11 @@ export class DetailsPage implements OnInit {
   ngOnInit() {
     this.ongetnum(this.numinput);
   }
-  async ongetnum(numin){
+  ongetnum(numin){
     for (let i=1; i<=12; i++){
       this.result.push(numin * i);
     }
-    await this.storage.get(this.numinput).then((val)=>{
+    this.storage.get(this.numinput).then((val)=>{
           this.storage.set(this.numinput,val+1);
           //console.log('count',val+1)
           this.count = val+1
